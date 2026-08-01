@@ -1,0 +1,14 @@
+name: creat user 
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create-user:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create User
+        run: |
+          git checkout -b feature/test-event
+          git push -u origin feature/test-event
+
