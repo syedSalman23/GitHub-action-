@@ -39,7 +39,8 @@ jobs:
           path: ./
 
       - name: verify artifact
-        run: ls -l app.jar
+        run: ls -l 
+        
 
 
 
