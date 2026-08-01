@@ -1,21 +1,14 @@
-name: Runner Demo
+name: create user 
 
 on:
-  push:
+  workflow_dispatch:
 
 jobs:
-  runner-demo:
+  create-user:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Show Current Directory
-        run: pwd
+      - name: Create User
+        run: |
+          git checkout -b feature/test-event
+          git push -u origin feature/test-event
 
-      - name: Show Current User
-        run: whoami
-
-      - name: Show Operating System
-        run: uname -a
-
-      - name: Show Files
-        run: ls -la
