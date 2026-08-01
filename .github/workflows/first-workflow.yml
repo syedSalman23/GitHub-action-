@@ -1,15 +1,21 @@
-name: My First Workflow
+name: Runner Demo
 
 on:
-  push: 
+  push:
 
 jobs:
-  hello:
+  runner-demo:
     runs-on: ubuntu-latest
 
     steps:
-      - run: |
-          echo "Welcome to GitHub Actions"
-          echo "This is Day 2"
-          echo "Learning CI/CD step by step"
-      
+      - name: Show Current Directory
+        run: pwd
+
+      - name: Show Current User
+        run: whoami
+
+      - name: Show Operating System
+        run: uname -a
+
+      - name: Show Files
+        run: ls -la
