@@ -1,34 +1,15 @@
-name: job demo
+name: checking check-out
 
 on:
   push:
-  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: build 1
-        run: echo "build 1"
-      - name: build 2
-        run: echo "build 2"
-  test:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: build 3
-        run: echo "build 3"
-      - name: build 4
-        run: echo "build 4"
-  deploy:
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
-      - name: build 5
-        run: echo "build 5"
-      - name: build 6
-        run: echo "build 6"
-        
-
-
-
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: list files
+        run: ls -la
+      - name: viwew file readme.md
+        run: cat readme.md 
