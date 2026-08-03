@@ -1,0 +1,20 @@
+name: context 
+
+on:
+  workflow_dispatch:
+
+env:
+  course: "github actions"
+
+jobs:
+  context:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print context
+        run: |
+          echo " github author: ${{ github.actor }}"
+          echo " github repository: ${{ github.repository }}"
+          echo " github repository owner: ${{ github.repository_owner }}"
+          echo " github repository ref: ${{ github.ref }}"
+          echo " github runner os: ${{ runner.os }}"
+          echo " course: ${{ env.course }}"

@@ -44,9 +44,8 @@ jobs:
           path: ./
 
       - name: verify artifact
-        run: ls -l 
+        run: ls -R
         
-
 
 
 
