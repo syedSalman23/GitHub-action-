@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
 
 env:
-  java-version: 17
-  working-directory: ./complete
+  java_version: 17
+  project_directory: ./complete
 
 
 jobs:
@@ -20,17 +20,17 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: ${{ env.java-version }}
+          java-version: ${{ env.java_version }}
 
       - name: Build with Maven
-        working-directory: ${{ env.working-directory }}
+        working-directory: ${{ env.project_directory }}
         run: mvn clean package
 
       - name: upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: app.jar
-          path: ${{ env.working-directory }}/target/*.jar
+          path: ${{ env.project_directory }}/target/*.jar
 
   deploy:
     runs-on: ubuntu-latest
