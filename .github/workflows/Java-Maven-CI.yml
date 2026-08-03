@@ -21,10 +21,15 @@ jobs:
         with:
           distribution: temurin
           java-version: ${{ env.java_version }}
+          cache: maven
+
+      - name: run tests
+        working-directory: ${{ env.project_directory }}
+        run: mvn test
 
       - name: Build with Maven
         working-directory: ${{ env.project_directory }}
-        run: mvn clean package
+        run: mvn clean package -DskipTests
 
       - name: upload artifact
         uses: actions/upload-artifact@v4
@@ -32,21 +37,4 @@ jobs:
           name: app.jar
           path: ${{ env.project_directory }}/target/*.jar
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: app.jar
-          path: ./
-
-      - name: verify artifact
-        run: ls -R
-        
-
-
-
-    
+  
