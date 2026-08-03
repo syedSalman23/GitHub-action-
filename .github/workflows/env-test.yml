@@ -1,0 +1,18 @@
+name: env test
+
+on: 
+  workflow_dispatch
+
+env:
+  TEST_ENV: "test"
+  TEST_ENV2: "test2"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print TEST_ENV
+        run: echo "${{ env.TEST_ENV }}"
+      - name: Print TEST_ENV2
+        run: echo "${{ env.TEST_ENV2 }}"
+
